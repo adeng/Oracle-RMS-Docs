@@ -1,0 +1,30 @@
+<div class="navbar-sub">
+    <div class="navbar-sub-placeholder">
+        <p>&nbsp;</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('docs')">
+        <p>{{app}}</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('process', {app: app})">
+        <p>{{process}}</p>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="container">
+    <br />
+    <div class="card-header">
+        <h1>Select Control</h1>
+        <br />
+        <p>Select a control from the options below</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card card-option" ng-repeat="control in controls" ng-click="nav('control-selected', {app: app, process: process, controlid: control[0]})">
+            <h3><span class="emphasis-number">{{control[0]}}</span></h3>
+            <p>{{control[1]}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PwC Salesforce Security Analytics</title>
+  
+    <!-- Angular -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>-->
+
+    <!-- Bootstrap -->
+    <!--<link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
+
+    <!-- For no internet -->
+    <script src="js/core/angular.min.js"></script>
+    <script src="js/core/angular-ui-router.min.js"></script>
+    <script src="js/core/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/core/ui-bootstrap.min.js"></script>
+    <script src="js/core/ng-file-upload.min.js"></script>
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <script src="js/core/Chart.min.js"></script>
+  </head>
+  <body ng-app="main" ng-controller="GlobalCtrl">
+    
+    <div>
+      <nav class="navbar navbar-light bg-faded navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
+      </nav> <!-- /navbar -->
+
+      <div style="height:65px">
+        <br />
+      </div>
+
+      <div>
+        <ui-view></ui-view>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!--<div class="container ui-view-container">
+      <div ui-view>
+      </div>
+    </div>-->
+    
+  </body>
+
+    <script src="js/module/app.js"></script>
+    <script src="js/module/controllers.js"></script>
+    <script src="js/module/services.js"></script>
+</html>

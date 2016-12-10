@@ -1,0 +1,60 @@
+<div class="navbar-sub">
+    <div class="navbar-sub-placeholder">
+        <p>&nbsp;</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('docs')">
+        <p>{{app}}</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('process', {app: app})">
+        <p>{{process}}</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('control', {app: app, process: process})">
+        <p>{{controlid}}</p>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="container">
+    <br />
+    <div class="card-header">
+        <h1>{{control.control_id}}</h1>
+        <br />
+        <h5><b>Module:</b> {{control.module}}</h5>
+        <h5><b>Process:</b> {{control.sub_process}}</h5>
+        <h5>{{control.control_description}}</h5>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h2>Control Information</h2>
+            <h5><b>Control Method:</b> {{control.control_method}}</h5>
+            <h5><b>Control Type:</b> {{control.control_type}}</h5>
+        </div>
+        <div class="card">
+            <h2>Navigation Path</h2>
+            <h5>{{control.navigation_path}}</h5>
+        </div>
+        <div class="card">
+            <h2>FS Assertions</h2>
+            <h5 ng-if="control.c">Completeness</h5>
+            <h5 ng-if="control.a">Accuracy</h5>
+            <h5 ng-if="control.v">Validity</h5>
+            <h5 ng-if="control.r">Restricted Access</h5>
+        </div>
+        <div class="card card-large">
+            <h2>Test Procedures</h2>
+            <h5>{{control.test_procedures}}</h5>
+        </div>
+        <div class="card card-attention">
+            <h2>Retail Report</h2>
+            <h3><span class="emphasis-number">{{control.retail_report}}</span></h3>
+            <h4>Click to view report</h4>
+        </div>
+        <div class="card">
+            <h2>Control Activity Narratives</h2>
+            <h3><span class="emphasis-number">{{control.control_activity_narratives}}</span></h3>
+        </div>
+    </div>
+</div>

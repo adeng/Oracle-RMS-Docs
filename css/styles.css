@@ -1,0 +1,230 @@
+/* Navbar */
+.navbar-fixed-top {
+    padding: 0px !important;
+}
+
+.navbar-brand, .navbar-nav li {
+    padding: 15px !important;
+    cursor: pointer;
+    margin: 0px !important;
+}
+
+.navbar-brand:hover, .navbar-nav li:hover {
+    background-color: rgba(210,210,210,255);
+    transition: background-color 0.35s;
+}
+
+.navbar-brand img {
+    max-height: 35px;
+}
+
+.navbar-brand p {
+    display: inline-block;
+    padding-left: 10px;
+    margin: 0px;
+}
+
+.nav-highlighted {
+    background-color: rgb(227,114,28) !important;
+}
+
+.nav-highlighted a {
+    color: white !important;
+}
+
+.navbar-sub {
+    background-color: rgb(227, 114, 28);
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 5;
+    user-select: none;
+}
+
+.navbar-sub-placeholder {
+    min-width: 20px;
+    height: 100%;
+    display: inline-block;
+}
+
+.navbar-sub-item {
+    min-width: 100px;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.navbar-sub-item:hover {
+    background-color: rgb(238,156,52) !important;
+    transition: background-color 0.35s;
+}
+
+.navbar-sub-item:active {
+    transition: background-color 0.1s;
+    background-color: rgb(243, 188, 135) !important;
+}
+
+.navbar-sub-item p {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    width: 100%;
+    color: white !important;
+    padding: 0px 10px 0px 10px;
+}
+
+.navbar-sub-item-active, .navbar-sub-item-active:hover {
+    background-color: rgb(243, 188, 135) !important;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-header {
+    background-color: rgb(245,245,245) !important;
+    border: 2px solid white !important;
+    padding: 40px !important;
+    margin: 15px;
+}
+
+.card {
+    flex-grow: 1;
+    flex-basis: 240px;
+    padding: 20px;
+    margin: 15px;
+    height: 240px;
+    background-color: rgb(245,245,245) !important;
+    border-radius: 0 !important;
+    border: 2px solid white !important;
+    user-select: none;
+}
+
+.card-large {
+    flex-basis: 550px !important;
+}
+
+.card:active {
+    transform: scale(0.95);
+}
+
+.card.card-option {
+    cursor: pointer;
+}
+
+.card-attention {
+    background-color:rgb(216, 86, 4) !important;
+    color: white;
+    cursor: pointer;
+}
+
+.card p {
+    margin: 0px;
+    line-height: 1.4em;
+    max-height: 4.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.card h5, .card-header h5 {
+    font-size: 1.2em;
+    font-weight: 300;
+    white-space: pre-wrap;
+}
+
+.card ul {
+    list-style-type: decimal;
+    padding: 5px;
+}
+
+.card li {
+    margin: 10px;
+}
+
+.card-content {
+    flex-grow: 1;
+    flex-basis: 550px;
+    padding: 20px;
+    margin: 15px;
+    height: 240px;
+    background-color: rgb(245,245,245);
+    border: 2px solid white !important;
+    /*max-height: 200px;*/
+}
+
+.card-content canvas {
+    height: 180px;
+}
+
+.card-content table {
+    width: 100%;
+}
+
+.affirmative {
+    color: rgb(16, 152, 62);
+}
+
+.negative {
+    color: rgb(209, 52, 56);
+}
+
+.card:hover, .card-content:hover, .card-header:hover {
+    background-color: white !important;
+    border: 2px solid rgb(205,205,205) !important;
+    transition: background-color 0.1s;
+    color: black;
+}
+
+.card:hover h2 {
+    color: rgb(227, 114, 28);
+}
+
+.card:hover .emphasis-number, .card-header:hover h1 {
+    color: rgb(178,39,15) !important;
+}
+
+.card h2 {
+    font-size: 0.85em;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0px;
+    margin-top: 15px !important;
+}
+
+.card-content h2 {
+    font-size: 0.85em;
+    font-weight: 400;
+    margin-top: 15px !important;
+}
+
+.card h3 {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 80px;
+}
+
+.card h4 {
+    font-weight: 300;
+    text-align: center;
+}
+
+.emphasis-number {
+    font-weight: 400;
+    font-size: 2em;
+}
+
+/* General */
+h1 {
+    font-weight: 400 !important;
+}
+
+body {
+    background-color: white !important;
+}

@@ -1,0 +1,27 @@
+<div class="navbar-sub">
+    <div class="navbar-sub-placeholder">
+        <p>&nbsp;</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('docs')">
+        <p>{{app}}</p>
+    </div>
+</div> 
+
+<br />
+<br />
+
+<div class="container">
+    <br />
+    <div class="card-header">
+        <h1>Select Process</h1>
+        <br />
+        <p>Select a process from the options below</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card card-option" ng-repeat="process in processes" ng-click="nav('control', {app: app, process: process})">
+            <h3><span class="emphasis-number">&nbsp;</span></h3>
+            <h4>{{process}}</h4>
+        </div>
+    </div>
+</div>
