@@ -34,7 +34,7 @@
     // Yes, PW is hardcoded - someone should really fix this at some point :) 
 
     try {
-        $conn = new PDO("sqlsrv:server = tcp:pwc-ssa-1.database.windows.net,1433; Database = pwc-ssa", "ssadmin", "Password2");
+        $conn = new PDO("sqlsrv:server = tcp:oracle-rms.database.windows.net,1433; Database = oracle-rms-docs", "rmsadmin", "CorrectHorse$4257");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch (PDOException $e) {
@@ -43,8 +43,8 @@
     }
     
     // SQL Server Extension Sample Code:
-    $connectionInfo = array("UID" => "ssadmin@pwc-ssa-1", "pwd" => "Password2", "Database" => "pwc-ssa", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-    $serverName = "tcp:pwc-ssa-1.database.windows.net,1433";
+    $connectionInfo = array("UID" => "rmsadmin@pwc-ssa-1", "pwd" => "CorrectHorse$4257", "Database" => "oracle-rms-docs", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:oracle-rms.database.windows.net,1433";
     $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     if($conn) {
@@ -120,7 +120,6 @@
         }
     }
     
-    include 'runSSA.php';
     sqlsrv_close($conn);
 
     echo "Tables and SSA processes successfully completed. Tables created under schema '$schema_name'"

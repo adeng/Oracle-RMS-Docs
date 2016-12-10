@@ -16,6 +16,12 @@
 			controller: 'DocsAppCtrl'
 		})
 
+		.state('upload', {
+			url: '/upload',
+			templateUrl: 'templates/upload/index.html',
+			controller: 'UploadCtrl'
+		})
+
 		.state('process', {
 			url: '/docs/:app',
 			templateUrl: 'templates/documentation/navigation/process.html',
@@ -34,6 +40,6 @@
 			controller: 'DocsControlSelectedCtrl'
 		});
 		
-		$urlRouterProvider.otherwise("/");
+		$urlRouterProvider.otherwise("/docs");
 	});
 })();

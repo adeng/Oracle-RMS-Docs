@@ -1,0 +1,17 @@
+<div class="container">
+    <br />
+    <br />
+    <h1 class="jumbotron-heading">Upload</h1>
+
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1" uib-tooltip="Use the client name, excluding spaces" tooltip-placement="top">Schema</span>
+        <input type="text" class="form-control" ng-model="upload.schema" aria-describedby="basic-addon1">
+    </div>
+    <br />
+    <p>Please upload a .zip file containing the extracted .csv files.</p>
+    <input type="file" accept=".zip" ngf-select="submitFile($file)" ></input>
+    <br />
+    <br />
+    <p>{{statusString}}</p>
+</div>
