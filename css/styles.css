@@ -89,6 +89,7 @@
     border: 2px solid white !important;
     padding: 40px !important;
     margin: 15px;
+    user-select: none;
 }
 
 .card {
@@ -103,11 +104,28 @@
     user-select: none;
 }
 
+.card-search input {
+    width: 100%;
+    border: 2px solid rgb(245,245,245);
+    background-color: white;
+}
+
+.card-search input:hover {
+    border: 2px solid rgb(205,205,205);
+    background-color: 2px solid rgb(245,245,245);
+}
+
+.card-search input:focus {
+    border: 2px solid rgb(238,156,52);
+    background-color: white;
+    outline: none;
+}
+
 .card-large {
     flex-basis: 550px !important;
 }
 
-.card:active {
+.card:active, .card-content:active {
     transform: scale(0.95);
 }
 

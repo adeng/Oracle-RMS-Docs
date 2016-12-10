@@ -18,8 +18,13 @@
         <p>Select a process from the options below</p>
     </div>
 
+    <div class="card-header card-search">
+        <h5>Search</h5>
+        <input type="text" ng-model="processSearch" />
+    </div>
+
     <div class="card-container">
-        <div class="card card-option" ng-repeat="process in processes" ng-click="nav('control', {app: app, process: process})">
+        <div class="card card-option" ng-repeat="process in processes | filter: search" ng-click="nav('control', {app: app, process: process})">
             <h3><span class="emphasis-number">&nbsp;</span></h3>
             <h4>{{process}}</h4>
         </div>

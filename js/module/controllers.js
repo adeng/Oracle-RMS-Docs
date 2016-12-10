@@ -20,20 +20,36 @@ angular.module('main.controllers', [])
 })
 
 .controller('DocsProcessCtrl', function($scope, $stateParams, $rootScope, Networking) {
+    $scope.processSearch = "";
     $rootScope.loc = "docs";
     $scope.app = $stateParams.app;
     Networking.getProcesses($scope.app).then(function(val) {
         $scope.processes = val;
     });
+
+    $scope.search = function(item){
+        if (!$scope.processSearch || (item.toLowerCase().indexOf($scope.processSearch) != -1)){
+            return true;
+        }
+        return false;
+    };
 })
 
-.controller('DocsControlCtrl', function($scope, $stateParams, $rootScope, Networking) {
-    $rootScope.loc = "docs";
+.controller('DocsControlCtrl', function($scope, $stateParams, $rootScope, Networking) {    $rootScope.loc = "docs";
+    $scope.controlSearch;
     $scope.app = $stateParams.app;
     $scope.process = $stateParams.process;
     Networking.getControls($stateParams.app, $stateParams.process).then(function(val) {
         $scope.controls = val;
     });
+    
+    $scope.search = function(item){
+        console.log($scope.controlSearch);
+        if (!$scope.controlSearch || (item[1].toLowerCase().indexOf($scope.controlSearch) != -1) || (item[0].toLowerCase().indexOf($scope.controlSearch) != -1) ){
+            return true;
+        }
+        return false;
+    };
 })
 
 .controller('DocsControlSelectedCtrl', function($scope, $stateParams, $rootScope, Networking) {
