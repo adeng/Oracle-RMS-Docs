@@ -32,7 +32,6 @@
     
     // Establish database connection
     // Yes, PW is hardcoded - someone should really fix this at some point :) 
-
     try {
         $conn = new PDO("sqlsrv:server = tcp:oracle-rms.database.windows.net,1433; Database = oracle-rms-docs", "rmsadmin", "CorrectHorse$4257");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -43,14 +42,9 @@
     }
     
     // SQL Server Extension Sample Code:
-    $connectionInfo = array("UID" => "rmsadmin@pwc-ssa-1", "pwd" => "CorrectHorse$4257", "Database" => "oracle-rms-docs", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $connectionInfo = array("UID" => "rmsadmin@oracle-rms", "pwd" => "CorrectHorse$4257", "Database" => "oracle-rms-docs", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
     $serverName = "tcp:oracle-rms.database.windows.net,1433";
     $conn = sqlsrv_connect($serverName, $connectionInfo);
-    
-    if($conn) {
-    } else {
-        die("\nDatabase connection failed");
-    }
     
     $schema_name = $_POST["schema"];
     $schema_sql = "IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = '$schema_name') BEGIN EXEC('CREATE SCHEMA [$schema_name] AUTHORIZATION [dbo];') END";
@@ -107,12 +101,12 @@
             }
 
             // Skip LoginHistory
-            if($table_name != "LoginHistory") {
-                $bcp = shell_exec("bcp [pwc-ssa].[$schema_name].[$table_name] IN $upload_dir/working/$table_name.csv -S pwc-ssa-1.database.windows.net -U ssadmin@pwc-ssa-1 -P Password2 -f $upload_dir/format/$table_name.fmt -F2");
-                if(!$bcp) {
-                    die("\nFailed on batch upload");
-                }                
-            }
+            // if($table_name != "LoginHistory") {
+            //     $bcp = shell_exec("bcp [oracle-rms-docs].[$schema_name].[$table_name] IN $upload_dir/working/$table_name.csv -S pwc-ssa-1.database.windows.net -U ssadmin@pwc-ssa-1 -P Password2 -f $upload_dir/format/$table_name.fmt -F2");
+            //     if(!$bcp) {
+            //         die("\nFailed on batch upload");
+            //     }                
+            // }
             // echo "\nSuccessfully uploaded data into table $table_name";
             
             // Clean up
@@ -122,5 +116,5 @@
     
     sqlsrv_close($conn);
 
-    echo "Tables and SSA processes successfully completed. Tables created under schema '$schema_name'"
+    echo "Tables updated. Tables created under schema '$schema_name'"
 ?>

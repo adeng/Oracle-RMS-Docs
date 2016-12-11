@@ -4,7 +4,10 @@ angular.module('main.services', [])
     return {
         getProcesses: function(app) {
             var deferred = $q.defer();
-            deferred.resolve(["Invoice Matching", "Invoice Entry", "Financial Integration", "Write-Off"]);
+            $http.post("/scripts/getProcesses.php", {app: app})
+            .success(function(data, status, headers, config) {
+                deferred.resolve(data);
+            });
             return deferred.promise;
         },
         getControls: function(app, process) {
