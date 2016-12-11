@@ -4,8 +4,11 @@ angular.module('main.services', [])
     return {
         getProcesses: function(app) {
             var deferred = $q.defer();
-            console.log(app);
-            $http.post("/scripts/getProcesses.php", {app: app})
+            var obj = {
+                app: app
+            };
+            console.log(obj);
+            $http.post("/scripts/getProcesses.php", obj)
             .success(function(data, status, headers, config) {
                 console.log(data);
                 deferred.resolve(data);
