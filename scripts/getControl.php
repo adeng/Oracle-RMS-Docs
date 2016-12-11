@@ -22,8 +22,7 @@
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC));
-    echo $row;
+    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
     sqlsrv_close($conn);
     echo json_encode($row);
