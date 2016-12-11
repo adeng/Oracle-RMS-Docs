@@ -23,6 +23,7 @@
     }
 
     $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC));
+    echo $row;
 
     sqlsrv_close($conn);
     echo json_encode($row);
