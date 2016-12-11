@@ -15,6 +15,10 @@
     .navbar-sub-back {
         display: block !important;
     }
+
+    .navbar-brand:active {
+        background-color: rgb(245,245,245) !important;
+    }
 }
 
 @media (min-width: 576px) {
