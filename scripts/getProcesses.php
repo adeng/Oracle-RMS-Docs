@@ -1,7 +1,5 @@
 <?php 
     $app = $_POST["app"];
-    echo $app;
-
     try {
         $conn = new PDO("sqlsrv:server = tcp:oracle-rms.database.windows.net,1433; Database = oracle-rms-docs", "rmsadmin", "CorrectHorse$4257"); 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -16,8 +14,7 @@
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     // Change this when you can 
-    $sql = "SELECT Sub_Process FROM [reim].[rcm] WHERE Module = '$app'";
-    echo $sql;
+    $sql = "SELECT DISTINCT Sub_Process FROM [reim].[rcm] WHERE Module = '$app'";
     $stmt = sqlsrv_query($conn, $sql);
     if(!$stmt) {
         die(print_r(sqlsrv_errors(), true));
