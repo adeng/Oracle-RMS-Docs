@@ -1,17 +1,18 @@
 <div class="navbar-toggleable-xs" id="navbar-header">
-    <a class="navbar-brand">
+    <a class="navbar-brand" ng-click="toggleHeader()">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/PricewaterhouseCoopers_Logo.svg/220px-PricewaterhouseCoopers_Logo.svg.png" />
         <p>Oracle Retail Docs</p>
+        <span>&#9776;</span>
     </a>
     <ul class="nav navbar-nav">
-    <!--<li class="nav-item" ng-class="{'nav-highlighted': loc == 'main'}">
-        <a class="nav-link" ui-sref="home">Home <span class="sr-only">(current)</span></a>
-    </li>-->
-    <li class="nav-item" ng-class="{'nav-highlighted': loc == 'docs'}">
-        <a class="nav-link" ui-sref="docs">Documentation</a>
-    </li>
-    <li class="nav-item" ng-class="{'nav-highlighted': loc == 'upload'}">
-        <a class="nav-link" ui-sref="upload">Upload</a>
-    </li>
+        <!--<li class="nav-item" ng-class="{'nav-highlighted': loc == 'main'}">
+            <a class="nav-link" ui-sref="home">Home <span class="sr-only">(current)</span></a>
+        </li>-->
+        <li class="nav-item" ng-class="{'nav-highlighted': loc == 'docs', 'toggled': toggled}" ng-click="toggleHeader()">
+            <a class="nav-link" ui-sref="docs">Documentation</a>
+        </li>
+        <li class="nav-item" ng-class="{'nav-highlighted': loc == 'upload', 'toggled': toggled}" ng-click="toggleHeader()">
+            <a class="nav-link" ui-sref="upload">Upload</a>
+        </li>
     </ul>
 </div>

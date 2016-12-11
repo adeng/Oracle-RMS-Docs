@@ -4,8 +4,16 @@ angular.module('main.controllers', [])
     Chart.defaults.global.responsive = true;
     Chart.defaults.global.maintainAspectRatio = false;
 
+    $rootScope.toggled = false;
+
     $rootScope.nav = function(state, payload) {
         $state.go(state, payload);
+    }
+
+    $rootScope.toggleHeader = function() {
+        if(window.innerWidth <= 575) {
+            $rootScope.toggled = !$rootScope.toggled;
+        }
     }
 })
 
@@ -65,6 +73,10 @@ angular.module('main.controllers', [])
         }
         return false;
     };
+
+    $rootScope.navBack = function() {
+        $rootScope.nav('docs');
+    }
 })
 
 .controller('DocsControlCtrl', function($scope, $stateParams, $rootScope, Networking) {    $rootScope.loc = "docs";
@@ -81,6 +93,10 @@ angular.module('main.controllers', [])
         }
         return false;
     };
+
+    $rootScope.navBack = function() {
+        $rootScope.nav('process', {app: $scope.app});
+    }
 })
 
 .controller('DocsControlSelectedCtrl', function($scope, $stateParams, $rootScope, Networking) {
@@ -91,4 +107,8 @@ angular.module('main.controllers', [])
     Networking.getControl($stateParams.app, $stateParams.process, $stateParams.controlid).then(function(val) {
         $scope.control = val;
     });
+
+    $rootScope.navBack = function() {
+        $rootScope.nav('process', {app: $scope.app, process: $scope.process});
+    }
 });
