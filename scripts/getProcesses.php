@@ -15,7 +15,8 @@
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     // Change this when you can 
-    $sql = "SELECT Sub_Process FROM [reim].[rcm] WHERE Module = $app";
+    $sql = "SELECT Sub_Process FROM [reim].[rcm] WHERE Module = '$app'";
+    echo $sql;
     $stmt = sqlsrv_query($conn, $sql);
     if(!$stmt) {
         die(print_r(sqlsrv_errors(), true));
