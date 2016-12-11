@@ -1,6 +1,6 @@
 <?php 
     $app = $_POST["app"];
-    print_rt($_POST);
+    print_r($_POST);
 
     try {
         $conn = new PDO("sqlsrv:server = tcp:oracle-rms.database.windows.net,1433; Database = oracle-rms-docs", "rmsadmin", "CorrectHorse$4257"); 
