@@ -49,7 +49,8 @@
         </div>
         <div class="card card-attention">
             <h2>Retail Report</h2>
-            <h3><span class="emphasis-number">{{control.Retail_Report}}</span></h3>
+            <h3 ng-if="!control.Retail_Report.includes('N/A')"><span class="emphasis-number">{{control.Retail_Report}}</span></h3>
+            <h3 ng-if="control.Retail_Report.includes('N/A')"><span class="emphasis-number">N/A</span></h3>
             <h4>Click to view report</h4>
         </div>
         <div class="card">
