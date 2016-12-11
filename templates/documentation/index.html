@@ -19,42 +19,42 @@
 <div class="container">
     <br />
     <div class="card-header">
-        <h1>{{control.control_id}}</h1>
+        <h1>{{control.Control_ID}}</h1>
         <br />
-        <h5><b>Module:</b> {{control.module}}</h5>
-        <h5><b>Process:</b> {{control.sub_process}}</h5>
-        <h5>{{control.control_description}}</h5>
+        <h5><b>Module:</b> {{control.Module}}</h5>
+        <h5><b>Process:</b> {{control.Sub_Process}}</h5>
+        <h5>{{control.Control_Description}}</h5>
     </div>
 
     <div class="card-container">
         <div class="card">
             <h2>Control Information</h2>
-            <h5><b>Control Method:</b> {{control.control_method}}</h5>
-            <h5><b>Control Type:</b> {{control.control_type}}</h5>
+            <h5><b>Control Method:</b> {{control.Control_Method}}</h5>
+            <h5><b>Control Type:</b> {{control.Control_Type}}</h5>
         </div>
         <div class="card">
             <h2>Navigation Path</h2>
-            <h5>{{control.navigation_path}}</h5>
+            <h5>{{control.Navigation_Path}}</h5>
         </div>
         <div class="card">
             <h2>Financial Statement Assertions</h2>
-            <h5 ng-if="control.c">Completeness</h5>
-            <h5 ng-if="control.a">Accuracy</h5>
-            <h5 ng-if="control.v">Validity</h5>
-            <h5 ng-if="control.r">Restricted Access</h5>
+            <h5 ng-if="control.C">Completeness</h5>
+            <h5 ng-if="control.A">Accuracy</h5>
+            <h5 ng-if="control.V">Validity</h5>
+            <h5 ng-if="control.R">Restricted Access</h5>
         </div>
         <div class="card card-large">
             <h2>Test Procedures</h2>
-            <h5>{{control.test_procedures}}</h5>
+            <h5>{{control.Test_Procedures}}</h5>
         </div>
         <div class="card card-attention">
             <h2>Retail Report</h2>
-            <h3><span class="emphasis-number">{{control.retail_report}}</span></h3>
+            <h3><span class="emphasis-number">{{control.Retail_Report}}</span></h3>
             <h4>Click to view report</h4>
         </div>
         <div class="card">
             <h2>Control Activity Narratives</h2>
-            <h3><span class="emphasis-number">{{control.control_activity_narratives}}</span></h3>
+            <h3><span class="emphasis-number">{{control.Control_Activity_Narratives}}</span></h3>
         </div>
     </div>
 </div>
