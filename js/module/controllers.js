@@ -89,6 +89,7 @@ angular.module('main.controllers', [])
     $scope.process = $stateParams.process;
     $scope.controlid = $stateParams.controlid;
     Networking.getControl($stateParams.app, $stateParams.process, $stateParams.controlid).then(function(val) {
+        console.log(val);
         $scope.control = val;
     });
 });

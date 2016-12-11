@@ -34,7 +34,6 @@ angular.module('main.services', [])
             };
             $http.post("/scripts/getControl.php", obj)
             .success(function(data, status, headers, config) {
-                console.log(data);
                 deferred.resolve(data);
             });
             return deferred.promise;
