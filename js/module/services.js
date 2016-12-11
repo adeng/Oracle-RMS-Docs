@@ -7,22 +7,22 @@ angular.module('main.services', [])
             var obj = {
                 app: app
             };
-            console.log(obj);
             $http.post("/scripts/getProcesses.php", obj)
             .success(function(data, status, headers, config) {
-                console.log(data);
                 deferred.resolve(data);
             });
             return deferred.promise;
         },
         getControls: function(app, process) {
             var deferred = $q.defer();
-            deferred.resolve([
-                ["ReIM.IM.01","The system is configured to use the receipt of goods date when determining the terms during invoice matching."],
-                ["ReIM.IM.02","The system is configured to use the receipt of goods date when determining the terms during invoice matching."],
-                ["ReIM.IM.03","The system is configured to use the receipt of goods date when determining the terms during invoice matching."],
-                ["ReIM.IM.04","The system is configured to use the receipt of goods date when determining the terms during invoice matching."]
-            ]);
+            var obj = {
+                app: app,
+                process: process
+            };
+            $http.post("/scripts/getControls.php", obj)
+            .success(function(data, status, headers, config) {
+                deferred.resolve(data);
+            });
             return deferred.promise;
         },
         getControl: function(app, process, controlid) {
