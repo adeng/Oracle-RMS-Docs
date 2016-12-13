@@ -1,5 +1,5 @@
 <?php 
-    $control = $_POST["controlid"];
+    $app = $_POST["app"];
     try {
         $conn = new PDO("sqlsrv:server = tcp:oracle-rms.database.windows.net,1433; Database = oracle-rms-docs", "rmsadmin", "CorrectHorse$4257"); 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -14,14 +14,19 @@
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     // Change this when you can 
-    $sql = "SELECT * FROM [reim].[rcm] WHERE Control_ID = '$control'";
+    $sql = "SELECT DISTINCT Risk_No FROM [reim].[riskmatrix] WHERE Module = '$app'";
     $stmt = sqlsrv_query($conn, $sql);
     if(!$stmt) {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+    $results = array();
+
+    while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $result = array($row['Risk_No']);
+        array_push($results, $result);
+    }
 
     sqlsrv_close($conn);
-    echo json_encode($row);
+    echo json_encode($results);
 ?>

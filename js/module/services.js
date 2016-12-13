@@ -25,11 +25,46 @@ angular.module('main.services', [])
             });
             return deferred.promise;
         },
+        getAllControls: function(app) {
+            var deferred = $q.defer();
+            var obj = {
+                app: app
+            };
+            $http.post("/scripts/getAllControls.php", obj)
+            .success(function(data, status, headers, config) {
+                deferred.resolve(data);
+            });
+            return deferred.promise;
+        },
+        getAllRisks: function(app) {
+            var module_map = {
+                'Retail Invoice Matching': 'ReIM'
+            };
+
+            var deferred = $q.defer();
+            var obj = {
+                app: module_map[app]
+            };
+            $http.post("/scripts/getAllRisks.php", obj)
+            .success(function(data, status, headers, config) {
+                deferred.resolve(data);
+            });
+            return deferred.promise;
+        },
+        getRisk: function(risk_no) {
+            var deferred = $q.defer();
+            var obj = {
+                risk_no: risk_no
+            };
+            $http.post("/scripts/getRisk.php", obj)
+            .success(function(data, status, headers, config) {
+                deferred.resolve(data);
+            });
+            return deferred.promise;
+        },
         getControl: function(app, process, controlid) {
             var deferred = $q.defer();
             var obj = {
-                app: app,
-                process: process,
                 controlid: controlid
             };
             $http.post("/scripts/getControl.php", obj)

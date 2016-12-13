@@ -5,8 +5,8 @@
     <div class="navbar-sub-item" ng-click="nav('docs')">
         <p>{{app}}</p>
     </div>
-    <div class="navbar-sub-item" ng-click="nav('options', {app: app})">
-        <p>Processes</p>
+    <div class="navbar-sub-item" ng-click="nav('docs')">
+        <p>Risks</p>
     </div>
     <div class="navbar-sub-back" ng-click="navBack()">
         <p>BACK</p>
@@ -19,9 +19,9 @@
 <div class="container">
     <br />
     <div class="card-header">
-        <h1>Select Process</h1>
+        <h1>Select Risk</h1>
         <br />
-        <p>Select a process from the options below</p>
+        <p>Select a risk from the options below</p>
     </div>
 
     <div class="card-header card-search">
@@ -30,9 +30,9 @@
     </div>
 
     <div class="card-container">
-        <div class="card card-option" ng-repeat="process in processes | filter: search" ng-click="nav('control', {app: app, view: 'Processes', process: process})">
+        <div class="card card-option" ng-repeat="risk in risks | filter: search" ng-click="nav('control', {app: app, view: 'Risks', process: risk})">
             <h3><span class="emphasis-number">&nbsp;</span></h3>
-            <h4>{{process}}</h4>
+            <h4>{{risk}}</h4>
         </div>
     </div>
 </div>

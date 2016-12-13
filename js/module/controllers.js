@@ -59,6 +59,15 @@ angular.module('main.controllers', [])
 
 })
 
+.controller('DocsOptionCtrl', function($scope, $stateParams, $rootScope, Networking) {
+    $rootScope.loc = "docs";
+    $scope.app = $stateParams.app;
+
+    $rootScope.navBack = function() {
+        $rootScope.nav('docs');
+    }
+})
+
 .controller('DocsProcessCtrl', function($scope, $stateParams, $rootScope, Networking) {
     $scope.processSearch = "";
     $rootScope.loc = "docs";
@@ -75,24 +84,60 @@ angular.module('main.controllers', [])
     };
 
     $rootScope.navBack = function() {
-        $rootScope.nav('docs');
+        $rootScope.nav('options', {app: $scope.app});
     }
 })
 
-.controller('DocsControlCtrl', function($scope, $stateParams, $rootScope, Networking) {    $rootScope.loc = "docs";
+.controller('DocsRisksCtrl', function($scope, $stateParams, $rootScope, Networking) {
+    $scope.processSearch = "";
+    $rootScope.loc = "docs";
+    $scope.app = $stateParams.app;
+    Networking.getAllRisks($scope.app).then(function(val) {
+        $scope.risks = val;
+    });
+
+    $scope.search = function(item){
+        if (!$scope.processSearch || (item.toLowerCase().indexOf($scope.processSearch) != -1)){
+            return true;
+        }
+        return false;
+    };
+
+    $rootScope.navBack = function() {
+        $rootScope.nav('options', {app: $scope.app});
+    }
+})
+
+.controller('DocsControlCtrl', function($scope, $stateParams, $rootScope, Networking) {    
+    $rootScope.loc = "docs";
     $scope.controlSearch;
     $scope.app = $stateParams.app;
+    $scope.view = $stateParams.view;
     $scope.process = $stateParams.process;
-    Networking.getControls($stateParams.app, $stateParams.process).then(function(val) {
-        $scope.controls = val;
-    });
-    
+
+    if($scope.view == 'Controls' && $scope.process == 'All') {
+        Networking.getAllControls($stateParams.app).then(function(val) {
+            $scope.controls = val;
+        });
+    } else {
+        Networking.getControls($stateParams.app, $stateParams.process).then(function(val) {
+            $scope.controls = val;
+        });
+    }
+
     $scope.search = function(item){
         if (!$scope.controlSearch || (item[1].toLowerCase().indexOf($scope.controlSearch) != -1) || (item[0].toLowerCase().indexOf($scope.controlSearch) != -1) ){
             return true;
         }
         return false;
     };
+
+    $scope.navProcess = function() {
+        if($scope.view == 'Controls' && $scope.process == 'All')
+            $rootScope.nav('options', {app: $scope.app})
+        else
+            $rootScope.nav('process', {app: $scope.app});
+    }
 
     $rootScope.navBack = function() {
         $rootScope.nav('process', {app: $scope.app});
@@ -102,11 +147,19 @@ angular.module('main.controllers', [])
 .controller('DocsControlSelectedCtrl', function($scope, $stateParams, $rootScope, Networking) {
     $rootScope.loc = "docs";
     $scope.app = $stateParams.app;
+    $scope.view = $stateParams.view;
     $scope.process = $stateParams.process;
     $scope.controlid = $stateParams.controlid;
     Networking.getControl($stateParams.app, $stateParams.process, $stateParams.controlid).then(function(val) {
         $scope.control = val;
     });
+
+    $scope.navProcess = function() {
+        if($scope.view == 'Controls' && $scope.process == 'All')
+            $rootScope.nav('options', {app: $scope.app})
+        else
+            $rootScope.nav('process', {app: $scope.app});
+    }
 
     $rootScope.navBack = function() {
         $rootScope.nav('process', {app: $scope.app, process: $scope.process});

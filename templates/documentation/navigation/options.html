@@ -1,0 +1,35 @@
+<div class="navbar-sub">
+    <div class="navbar-sub-placeholder">
+        <p>&nbsp;</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="nav('docs')">
+        <p>{{app}}</p>
+    </div>
+</div> 
+
+<br />
+<br />
+
+<div class="container">
+    <br />
+    <div class="card-header">
+        <h1>Select View</h1>
+        <br />
+        <p>Select a view from the options below</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card card-option" ng-click="nav('control', {app: app, view: 'Controls', process: 'All'})">
+            <h3><span class="emphasis-number">&nbsp;</span></h3>
+            <h4>View By Control</h4>
+        </div>
+        <div class="card card-option" ng-click="nav('risk', {app: app})">
+            <h3><span class="emphasis-number">&nbsp;</span></h3>
+            <h4>View By Risk</h4>
+        </div>
+        <div class="card card-option" ng-click="nav('process', {app: app})">
+            <h3><span class="emphasis-number">&nbsp;</span></h3>
+            <h4>View By Process</h4>
+        </div>
+    </div>
+</div>

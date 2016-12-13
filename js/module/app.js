@@ -61,20 +61,32 @@
 			controller: 'UploadCtrl'
 		})
 
-		.state('process', {
+		.state('options', {
 			url: '/docs/:app',
+			templateUrl: 'templates/documentation/navigation/options.html',
+			controller: 'DocsOptionCtrl'
+		})
+
+		.state('process', {
+			url: '/docs/:app/process',
 			templateUrl: 'templates/documentation/navigation/process.html',
 			controller: 'DocsProcessCtrl'
 		})
+		
+		.state('risk', {
+			url: '/docs/:app/risk',
+			templateUrl: 'templates/documentation/navigation/allrisks.html',
+			controller: 'DocsRisksCtrl'
+		})
 
 		.state('control', {
-			url: '/docs/:app/:process',
+			url: '/docs/:app/:view/:process',
 			templateUrl: 'templates/documentation/navigation/control.html',
 			controller: 'DocsControlCtrl'
 		})
 
 		.state('control-selected', {
-			url: '/docs/:app/:process/:controlid',
+			url: '/docs/:app/:view/:process/:controlid',
 			templateUrl: 'templates/documentation/index.html',
 			controller: 'DocsControlSelectedCtrl'
 		});

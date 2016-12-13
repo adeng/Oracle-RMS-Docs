@@ -5,7 +5,10 @@
     <div class="navbar-sub-item" ng-click="nav('docs')">
         <p>{{app}}</p>
     </div>
-    <div class="navbar-sub-item" ng-click="nav('process', {app: app})">
+    <div class="navbar-sub-item" ng-click="nav('options', {app: app})">
+        <p>{{view}}</p>
+    </div>
+    <div class="navbar-sub-item" ng-click="navProcess()">
         <p>{{process}}</p>
     </div>
     <div class="navbar-sub-back" ng-click="navBack()">
