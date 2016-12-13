@@ -140,7 +140,7 @@ angular.module('main.controllers', [])
         if($scope.view == 'Controls' && $scope.process == 'All')
             $rootScope.nav('options', {app: $scope.app});
         else if($scope.view == 'Risks')
-            $rootScope.nav('risks', {app: $scope.app});
+            $rootScope.nav('risk', {app: $scope.app});
         else
             $rootScope.nav('processes', {app: $scope.app});
     }
