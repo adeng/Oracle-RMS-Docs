@@ -33,7 +33,7 @@
     </div>
 
     <div class="card-container">
-        <div class="card card-option" ng-repeat="control in controls | filter: search" ng-click="nav('control-selected', {app: app, process: process, controlid: control[0]})">
+        <div class="card card-option" ng-repeat="control in controls | filter: search" ng-click="nav('control-selected', {app: app, process: process, view: view, controlid: control[0]})">
             <h3><span class="emphasis-number">{{control[0]}}</span></h3>
             <p>{{control[1]}}</p>
         </div>
