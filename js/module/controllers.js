@@ -63,7 +63,7 @@ angular.module('main.controllers', [])
     $rootScope.loc = "docs";
     $scope.app = $stateParams.app;
 
-    $rootScope.navBack = function() {
+    $scope.navBack = function() {
         $rootScope.nav('docs');
     }
 })
@@ -83,7 +83,7 @@ angular.module('main.controllers', [])
         return false;
     };
 
-    $rootScope.navBack = function() {
+    $scope.navBack = function() {
         $rootScope.nav('options', {app: $scope.app});
     }
 })
@@ -103,7 +103,7 @@ angular.module('main.controllers', [])
         return false;
     };
 
-    $rootScope.navBack = function() {
+    $scope.navBack = function() {
         $rootScope.nav('options', {app: $scope.app});
     }
 })
@@ -145,7 +145,7 @@ angular.module('main.controllers', [])
             $rootScope.nav('processes', {app: $scope.app});
     }
 
-    $rootScope.navBack = function() {
+    $scope.navBack = function() {
         $rootScope.nav('process', {app: $scope.app});
     }
 })
@@ -169,7 +169,12 @@ angular.module('main.controllers', [])
             $rootScope.nav('processes', {app: $scope.app});
     }
 
-    $rootScope.navBack = function() {
-        $rootScope.nav('process', {app: $scope.app, process: $scope.process});
+    $scope.navBack = function() {
+        if($scope.view == 'Processes')
+            $rootScope.nav('process', {app: $scope.app, process: $scope.process});
+        else if($scope.view == 'Risks')
+            $rootScope.nav('risk', {app: $scope.app, process: $scope.process});
+        else
+            $rootScope.nav('control', {app: app, view: 'Controls', process: 'All'});
     }
 });

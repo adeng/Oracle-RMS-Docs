@@ -68,13 +68,13 @@
 		})
 
 		.state('process', {
-			url: '/docs/:app/process',
+			url: '/docs/:app/Processes',
 			templateUrl: 'templates/documentation/navigation/process.html',
 			controller: 'DocsProcessCtrl'
 		})
 		
 		.state('risk', {
-			url: '/docs/:app/risk',
+			url: '/docs/:app/Risks',
 			templateUrl: 'templates/documentation/navigation/allrisks.html',
 			controller: 'DocsRisksCtrl'
 		})
