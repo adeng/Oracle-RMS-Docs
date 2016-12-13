@@ -144,10 +144,6 @@ angular.module('main.controllers', [])
         else
             $rootScope.nav('processes', {app: $scope.app});
     }
-
-    $scope.navBack = function() {
-        $rootScope.nav('process', {app: $scope.app});
-    }
 })
 
 .controller('DocsControlSelectedCtrl', function($scope, $stateParams, $rootScope, Networking) {
