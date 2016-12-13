@@ -119,6 +119,10 @@ angular.module('main.controllers', [])
         Networking.getAllControls($stateParams.app).then(function(val) {
             $scope.controls = val;
         });
+    } else if($scope.view == 'Risks') {
+        Networking.getRisk($stateParams.process).then(function(val) {
+            $scope.controls = val['Control_ID'];
+        });
     } else {
         Networking.getControls($stateParams.app, $stateParams.process).then(function(val) {
             $scope.controls = val;
