@@ -97,7 +97,7 @@ angular.module('main.controllers', [])
     });
 
     $scope.search = function(item){
-        if (!$scope.processSearch || (item.toLowerCase().indexOf($scope.processSearch) != -1)){
+        if (!$scope.processSearch || (item[0].toLowerCase().indexOf($scope.processSearch) != -1) || (item[1].toLowerCase().indexOf($scope.processSearch) != -1)){
             return true;
         }
         return false;
@@ -134,9 +134,11 @@ angular.module('main.controllers', [])
 
     $scope.navProcess = function() {
         if($scope.view == 'Controls' && $scope.process == 'All')
-            $rootScope.nav('options', {app: $scope.app})
+            $rootScope.nav('options', {app: $scope.app});
+        else if($scope.view == 'Risks')
+            $rootScope.nav('risks', {app: $scope.app});
         else
-            $rootScope.nav('process', {app: $scope.app});
+            $rootScope.nav('processes', {app: $scope.app});
     }
 
     $rootScope.navBack = function() {
@@ -156,9 +158,11 @@ angular.module('main.controllers', [])
 
     $scope.navProcess = function() {
         if($scope.view == 'Controls' && $scope.process == 'All')
-            $rootScope.nav('options', {app: $scope.app})
+            $rootScope.nav('options', {app: $scope.app});
+        else if($scope.view == 'Risks')
+            $rootScope.nav('risks', {app: $scope.app});
         else
-            $rootScope.nav('process', {app: $scope.app});
+            $rootScope.nav('processes', {app: $scope.app});
     }
 
     $rootScope.navBack = function() {

@@ -14,7 +14,7 @@
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     // Change this when you can 
-    $sql = "SELECT DISTINCT Risk_No FROM [reim].[riskmatrix] WHERE Module = '$app'";
+    $sql = "SELECT DISTINCT Risk_No, Business_Risk FROM [reim].[riskmatrix] WHERE Module = '$app'";
     $stmt = sqlsrv_query($conn, $sql);
     if(!$stmt) {
         die(print_r(sqlsrv_errors(), true));
@@ -23,7 +23,7 @@
     $results = array();
 
     while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $result = array($row['Risk_No']);
+        $result = array($row['Risk_No'], $row['Business_Risk']);
         array_push($results, $result);
     }
 

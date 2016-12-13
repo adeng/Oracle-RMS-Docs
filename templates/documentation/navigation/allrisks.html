@@ -30,9 +30,9 @@
     </div>
 
     <div class="card-container">
-        <div class="card card-option" ng-repeat="risk in risks | filter: search" ng-click="nav('control', {app: app, view: 'Risks', process: risk})">
-            <h3><span class="emphasis-number">&nbsp;</span></h3>
-            <h4>{{risk}}</h4>
+        <div class="card card-option" ng-repeat="risk in risks | filter: search" ng-click="nav('control', {app: app, view: 'Risks', process: risk[0]})">
+            <h3><span class="emphasis-number">{{risk[0]}}</span></h3>
+            <h4>{{risk[1]}}</h4>
         </div>
     </div>
 </div>
