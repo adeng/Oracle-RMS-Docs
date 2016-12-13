@@ -32,7 +32,7 @@
     $controls = array();
 
     while($row = sqlsrv_fetch_array($stmt2, SQLSRV_FETCH_ASSOC)) {
-        $result = array($row['Control_ID']);
+        $result = array($row['Control_ID'], $row['Control_Description']);
         array_push($controls, $result);
     }
 
