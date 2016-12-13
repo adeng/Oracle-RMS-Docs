@@ -166,11 +166,6 @@ angular.module('main.controllers', [])
     }
 
     $scope.navBack = function() {
-        if($scope.view == 'Processes')
-            $rootScope.nav('process', {app: $scope.app, process: $scope.process});
-        else if($scope.view == 'Risks')
-            $rootScope.nav('risk', {app: $scope.app, process: $scope.process});
-        else
-            $rootScope.nav('control', {app: app, view: 'Controls', process: 'All'});
+        $rootScope.nav('control', {app: $scope.app, view: $scope.view, process: $scope.process})
     }
 });
