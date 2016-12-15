@@ -161,6 +161,29 @@
     user-select: none;
 }
 
+.card-header h1 {
+    transform: translateY(65px);
+    transition: transform 0.2s;
+}
+
+.card-header p {
+    opacity: 0;
+}
+
+.card-header:hover {
+    border: 2px solid rgb(205,205,205) !important;
+}
+
+.card-header:hover p {
+    opacity: 1;
+    transition: opacity 0.35s;
+}
+
+.card-header:hover h1 {
+    transform: translateY(0px) !important;
+    transition: transform 0.25s;
+}
+
 .card {
     flex-grow: 1;
     flex-basis: 240px;
@@ -168,6 +191,7 @@
     margin: 15px;
     height: 240px;
     background-color: rgb(245,245,245) !important;
+    transition: background-color 0.1s;
     border-radius: 0 !important;
     border: 2px solid white !important;
     user-select: none;
@@ -260,7 +284,7 @@
     color: rgb(209, 52, 56);
 }
 
-.card:hover, .card-content:hover, .card-header:hover {
+.card:hover, .card-content:hover {
     background-color: white !important;
     border: 2px solid rgb(205,205,205) !important;
     transition: background-color 0.1s;
@@ -271,7 +295,7 @@
     color: rgb(227, 114, 28);
 }
 
-.card:hover .emphasis-number, .card-header:hover h1 {
+.card:hover .emphasis-number {
     color: rgb(178,39,15) !important;
 }
 
